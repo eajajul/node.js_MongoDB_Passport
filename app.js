@@ -1,12 +1,12 @@
-const express =require ('express');
+import express from 'express';
 const app=express();
 const port=3000;
-const route=require('./routes/index')
-const userRoute=require('./routes/user')
+import {mainRoute} from './routes/index.js';
+import {userRoute} from './routes/user.js';
 
 
 //Router Use
-app.use('/',route)
+app.use('/',mainRoute)
 app.use('/user',userRoute)
 
 //App start
