@@ -1,6 +1,14 @@
 import express from 'express';
+
+//Express initialize
 const app=express();
-const port=3000;
+const port=process.env.port||3000;
+
+//express layouts
+
+app.use
+
+//Router from external
 import {mainRoute} from './routes/index.js';
 import {userRoute} from './routes/user.js';
 
