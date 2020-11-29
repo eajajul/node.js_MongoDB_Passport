@@ -6,6 +6,9 @@ import express from 'express';
 import expressEjsLayouts from 'express-ejs-layouts';
 //MongoDb
 import mongoose from 'mongoose';
+mongoose.connect(process.env.MONGO_URI,{useUnifiedTopology:true,useNewUrlParser:true})
+.then(()=>console.log("Connceted Successfully"))
+.catch((err)=>console.log(err))
 
 //Express initialize
 const app=express();
