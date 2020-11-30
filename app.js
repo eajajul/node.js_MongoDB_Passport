@@ -12,7 +12,7 @@ mongoose.connect(process.env.MONGO_URI,{useUnifiedTopology:true,useNewUrlParser:
 
 //Express initialize
 const app=express();
-const port=process.env.port||3000;
+const port=process.env.PORT||3000;
 
 //express layouts
 app.use(expressEjsLayouts)
@@ -22,6 +22,9 @@ app.set("layout extractStyles", true)
 
 //Static files
 app.use(express.static('public'))
+
+//Body Parser
+app.use(express.urlencoded({extended:true}))
 
 //Router from external
 import {mainRoute} from './routes/index.js';
