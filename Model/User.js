@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 
+// UserSchma declared with databse validation
 const UserSchema= new mongoose.Schema({
     first_name:{
         type:String,
@@ -32,6 +33,7 @@ const UserSchema= new mongoose.Schema({
     }
 })
 
+//User model creation 
 const User=mongoose.model('User',UserSchema)
 
 export {User}
