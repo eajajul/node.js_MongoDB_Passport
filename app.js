@@ -1,12 +1,13 @@
 import express from 'express';
+import expressLayouts from 'express-ejs-layouts'
 
 //Express initialize
 const app=express();
 const port=process.env.port||3000;
 
 //express layouts
-
-app.use
+app.use(expressLayouts)
+app.set('view engine','ejs')
 
 //Router from external
 import {mainRoute} from './routes/index.js';
