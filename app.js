@@ -1,9 +1,17 @@
 //.env
 import dotenv from 'dotenv';
+import expressValidator from 'express-validator';
+
 dotenv.config()
 
 import express from 'express';
 import expressEjsLayouts from 'express-ejs-layouts';
+
+
+//Router from external
+import {mainRoute} from './routes/index.js';
+import {userRoute} from './routes/user.js';
+
 //MongoDb
 import mongoose from 'mongoose';
 mongoose.connect(process.env.MONGO_URI,{useUnifiedTopology:true,useNewUrlParser:true})
@@ -25,11 +33,10 @@ app.use(express.static('public'))
 
 //Body Parser
 app.use(express.urlencoded({extended:true}))
+app.use(express.json())
 
-//Router from external
-import {mainRoute} from './routes/index.js';
-import {userRoute} from './routes/user.js';
-
+//EXpress validator
+// app.use(expressValidator())
 
 //Router Use
 app.use('/',mainRoute)
