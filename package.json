@@ -22,9 +22,17 @@
     "express-validator": "^6.7.0",
     "mongoose": "^5.10.14",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "pnotify": "^5.2.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "@pnotify/core": "^5.2.0",
+    "eslint": "7.2.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-prettier": "^3.2.0",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.2.1"
   }
 }
