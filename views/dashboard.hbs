@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="/css/navbar.css" />
-<%- contentFor('nav_bar') %>
+{{!-- <%- contentFor('nav_bar') %> --}}
 <nav class="NXc7H jLuN9">
   <div class="R4HNP"></div>
   <div class="_8MQSO Cx7Bp">
@@ -129,9 +129,10 @@
         </div>
 
         <div class="profile-user-settings">
-          <% if (typeof user!=="undefined") { %>
-          <h1 class="profile-user-name"><%- user.firstName %></h1>
-          <% } %>
+         
+          {{#if  user}}
+          <h1 class="profile-user-name">{{user.firstName}}</h1>
+          {{/if}}
 
           <button class="btn profile-edit-btn">Edit Profile</button>
 
@@ -457,6 +458,5 @@
 </div>
 
 <script>
-  let a=<%- JSON.stringify(success) %>
-  console.log(a)
+  
 </script>

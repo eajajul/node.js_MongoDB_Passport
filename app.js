@@ -2,12 +2,9 @@
 // .env
 import dotenv from 'dotenv';
 import express from 'express';
-
-import expressValidator from 'express-validator';
 import connectFlash from 'connect-flash';
 import expressSession from 'express-session';
-
-import expressEjsLayouts from 'express-ejs-layouts';
+import exhbs from 'express-handlebars'
 
 // Router from external
 import mongoose from 'mongoose';
@@ -42,11 +39,27 @@ mongoose
   .catch((err) => console.log(err));
 
 
-// express layouts
-app.use(expressEjsLayouts);
-app.set('view engine', 'ejs');
-app.set('layout extractScripts', true);
-app.set('layout extractStyles', true);
+// HBS layouts
+
+const hbs = exhbs.create({
+
+  defaultLayout:'main',
+  helpers: {
+      section: function(name, options){ 
+          if(!this._sections) this._sections = {};
+          this._sections[name] = options.fn(this); 
+          return null;
+      } 
+  }    
+});
+
+app.engine('hbs', exhbs({
+  defaultLayout: 'layout',
+  extname: '.hbs'
+}));
+
+app.set('view engine', 'hbs');
+
 
 // Static files
 app.use(express.static('public'));
@@ -57,8 +70,6 @@ app.use(express.urlencoded({
   })
 );
 app.use(express.json());
-// EXpress validator
-// app.use(expressValidator())
 
 // Router Use
 app.use('/', mainRoute);
